@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <title>Document</title>
+
+    <link rel="stylesheet" href = '{% static "css/college_style.css" %}' type="text/css" />
+    <link rel="stylesheet" href = '{% static "css/jquery.dataTables.min.css" %}' type="text/css" />
+    
+    <script src = '{% static "js/lib/jquery.min.js"  %}' type="text/javascript"></script>
+    <script src = '{% static "js/lib/jquery.dataTables.min.js"  %}' type="text/javascript"></script>
+    <script src = '{% static "js/cdbScript.js" %}' type="text/javascript"></script>
+
+</head>
+<body>
+    <h1>{{college}} Welcomes You </h1><br>
+    <table class="display myTable" id="customTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Id</th>
+                <th>Department</th>
+                <th>Year</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            {% if college_list %}
+
+                {% for student in college_list %}
+                    <tr>
+                        <td>{{student.studName}}</td>
+                        <td>{{student.studId}}</td>
+                        <td>{{student.studDept}}</td>
+                        <td>{{student.studYear}}</td>
+                    </tr>
+                {% endfor %}
+
+            {% endif %}
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <th>Name</th>
+                <th>Id</th>
+                <th>Department</th>
+                <th>Year</th>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
